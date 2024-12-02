@@ -32,7 +32,7 @@ struct ContentView: View {
     
     // MARK: - Body
     var body: some View {
-        NavigationStack {
+        NavigationSplitView {
             Group {
                 if !isGridViewActive {
                     List {
@@ -47,6 +47,8 @@ struct ContentView: View {
                                 AnimalListItemView(animal: animal)
                             }
                         }
+                        CreditsView()
+                            .modifier(centerModifier())
                     }
                 } else {
                     ScrollView {
@@ -94,6 +96,8 @@ struct ContentView: View {
                     }
                 }
             }
+        } detail: {
+            Text("Choose an animal to see it's details")
         }
     }
 }
